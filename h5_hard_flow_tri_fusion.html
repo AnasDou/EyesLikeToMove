@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=980"><title>H5 · Tri fusion — Énoncé vs Organigramme</title><style>
+:root{--tfs:28.0px;--tlh:2.6;--clh:3.0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1920px;height:980px;overflow:hidden;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;}
+.wrap{display:flex;gap:26px;padding:26px;width:1920px;height:980px;overflow:hidden;}
+.panel{flex:1;min-width:0;background:#fff;border-radius:16px;
+       box-shadow:0 4px 22px rgba(0,0,0,.09);display:flex;flex-direction:column;overflow:hidden;}
+.ph{padding:18px 32px 14px;border-bottom:4px solid;flex-shrink:0;}
+.ph.text{border-color:#0d7557;}.ph.code{border-color:#c05621;}.ph.flow{border-color:#6b46c1;}
+.pt{font-size:23px;font-weight:700;display:flex;align-items:center;gap:13px;margin-bottom:3px;}
+.pt.text{color:#0d7557;}.pt.code{color:#c05621;}.pt.flow{color:#6b46c1;}
+.ic{width:42px;height:42px;border-radius:10px;color:#fff;font-size:21px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;}
+.ic.text{background:linear-gradient(135deg,#0d9668,#065f46);}
+.ic.code{background:linear-gradient(135deg,#dd6b20,#9c4221);}
+.ic.flow{background:linear-gradient(135deg,#805ad5,#553c9a);}
+.ps{color:#718096;font-size:15px;margin-left:55px;}
+.pb{flex:1;min-height:0;padding:26px 30px;overflow:hidden;display:flex;flex-direction:column;}
+
+/* text (left) */
+.text-box{flex:1;min-height:0;background:#f0fff7;border:2px solid #9ae6b4;border-radius:12px;
+          padding:34px 40px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+.tc{font-size:var(--tfs);color:#1a2733;line-height:var(--tlh);}
+.tc p{margin-bottom:16px;text-align:justify;}
+.tc p:last-child{margin-bottom:0;}
+.hl{background:#c6f6d5;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap;}
+.tc strong{color:#0d7557;}.tc em{color:#9c4221;font-style:italic;font-weight:600;}
+
+/* code (right) */
+.code-box{flex:1;min-height:0;background:#fffaf0;border:1px solid #fbd38d;border-radius:12px;
+          padding:28px 34px;overflow:hidden;display:flex;align-items:center;}
+.cb{font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:21px;line-height:var(--clh);width:100%;}
+.cl{display:block;white-space:pre;}
+.ln{display:inline-block;width:30px;color:#cbb994;text-align:right;margin-right:22px;font-size:15px;user-select:none;}
+.kw{color:#805ad5;font-weight:700;}.fn{color:#2b6cb0;font-weight:700;}
+.nm{color:#d53f8c;font-weight:700;}.op{color:#718096;}.va{color:#2d3748;}
+.cm{color:#48a868;font-style:italic;}
+.bugc{background:#fed0dc;border-radius:4px;padding:0 4px;}
+
+/* flow (right) */
+.flow-box{flex:1;min-height:0;background:#faf5ff;border:1px solid #d6bcfa;border-radius:12px;
+          display:flex;justify-content:center;align-items:center;overflow:hidden;padding:18px;}
+.flow-box svg{max-width:100%;max-height:100%;height:100%;}
+</style></head><body><!-- H5 | Tri fusion — Énoncé vs Organigramme | INCOHÉRENCE: Organigramme : droite = triFusion(tab[mil+1:]) (perd l'élément central) ; énoncé (correct) : tab[mil:]. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Tri fusion (récursif)</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction récursive <span class="hl">triFusion</span> qui trie un tableau <span class="hl">tab</span>.</p><p><strong>Cas de base :</strong> si le tableau contient un seul élément ou moins, le retourner tel quel. Sinon, calculer le milieu <span class="hl">mil = len(tab) &divide; 2</span>.</p><p>Appeler récursivement <span class="hl">triFusion</span> sur la moitié gauche <span class="hl">tab[:mil]</span> et sur la moitié droite <span class="hl">tab[mil:]</span>. Fusionner enfin les deux moitiés triées et retourner le résultat.</p></div></div></div></div><div class="panel"><div class="ph flow"><div class="pt flow"><span class="ic flow">&#9697;</span>Organigramme</div><div class="ps">Tri fusion (récursif)</div></div><div class="pb"><div class="flow-box"><svg viewBox="0 0 540 615" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" fill="#2d3748">
+<defs>
+ <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+   markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+ </marker>
+</defs>
+<ellipse cx="240" cy="30" rx="56" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="240" y="35" text-anchor="middle" font-size="14" font-weight="700">DÉBUT</text>
+<line x1="240" y1="50" x2="240" y2="74" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="74" width="180" height="40" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="240" y="99" text-anchor="middle" font-size="13" font-weight="600">Entrée : tab</text>
+<line x1="240" y1="114" x2="240" y2="138" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="240,140 348,182 240,224 132,182" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="240" y="187" text-anchor="middle" font-size="12" font-weight="700">len(tab) ≤ 1 ?</text>
+<line x1="348" y1="182" x2="382" y2="182" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="354" y="176" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="382" y="163" width="120" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="442" y="188" text-anchor="middle" font-size="13" font-weight="600">retourner tab</text>
+<line x1="240" y1="224" x2="240" y2="246" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="248" y="240" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<rect x="45" y="246" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="271" text-anchor="middle" font-size="12" font-weight="600">mil ← len(tab) ÷ 2</text>
+<line x1="240" y1="286" x2="240" y2="308" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="45" y="308" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="333" text-anchor="middle" font-size="12" font-weight="600">gauche ← triFusion(tab[ :mil])</text>
+<line x1="240" y1="348" x2="240" y2="370" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="45" y="370" width="390" height="40" rx="7" fill="#fed0dc" stroke="#c53030" stroke-width="2"/><text x="240" y="395" text-anchor="middle" font-size="12" font-weight="600">droite ← triFusion(tab[mil+1: ])</text>
+<line x1="240" y1="410" x2="240" y2="432" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="45" y="432" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="457" text-anchor="middle" font-size="12" font-weight="600">resultat ← fusionner(gauche, droite)</text>
+<line x1="240" y1="472" x2="240" y2="494" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="120" y="494" width="240" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="240" y="519" text-anchor="middle" font-size="13" font-weight="600">retourner resultat</text>
+<line x1="240" y1="534" x2="240" y2="556" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<ellipse cx="240" cy="580" rx="56" ry="22" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="240" y="585" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
+<path d="M502,182 L515,182 L515,580" stroke="#4a5568" stroke-width="2" fill="none"/>
+<path d="M515,580 L296,580" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+</svg></div></div></div></div></body></html>

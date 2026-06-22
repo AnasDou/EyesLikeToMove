@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=980"><title>H3 · Tri par sélection — Énoncé vs Code</title><style>
+:root{--tfs:21.5px;--tlh:3.2;--clh:3.0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1920px;height:980px;overflow:hidden;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;}
+.wrap{display:flex;gap:26px;padding:26px;width:1920px;height:980px;overflow:hidden;}
+.panel{flex:1;min-width:0;background:#fff;border-radius:16px;
+       box-shadow:0 4px 22px rgba(0,0,0,.09);display:flex;flex-direction:column;overflow:hidden;}
+.ph{padding:18px 32px 14px;border-bottom:4px solid;flex-shrink:0;}
+.ph.text{border-color:#0d7557;}.ph.code{border-color:#c05621;}.ph.flow{border-color:#6b46c1;}
+.pt{font-size:23px;font-weight:700;display:flex;align-items:center;gap:13px;margin-bottom:3px;}
+.pt.text{color:#0d7557;}.pt.code{color:#c05621;}.pt.flow{color:#6b46c1;}
+.ic{width:42px;height:42px;border-radius:10px;color:#fff;font-size:21px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;}
+.ic.text{background:linear-gradient(135deg,#0d9668,#065f46);}
+.ic.code{background:linear-gradient(135deg,#dd6b20,#9c4221);}
+.ic.flow{background:linear-gradient(135deg,#805ad5,#553c9a);}
+.ps{color:#718096;font-size:15px;margin-left:55px;}
+.pb{flex:1;min-height:0;padding:26px 30px;overflow:hidden;display:flex;flex-direction:column;}
+
+/* text (left) */
+.text-box{flex:1;min-height:0;background:#f0fff7;border:2px solid #9ae6b4;border-radius:12px;
+          padding:34px 40px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+.tc{font-size:var(--tfs);color:#1a2733;line-height:var(--tlh);}
+.tc p{margin-bottom:16px;text-align:justify;}
+.tc p:last-child{margin-bottom:0;}
+.hl{background:#c6f6d5;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap;}
+.tc strong{color:#0d7557;}.tc em{color:#9c4221;font-style:italic;font-weight:600;}
+
+/* code (right) */
+.code-box{flex:1;min-height:0;background:#fffaf0;border:1px solid #fbd38d;border-radius:12px;
+          padding:28px 34px;overflow:hidden;display:flex;align-items:center;}
+.cb{font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:21px;line-height:var(--clh);width:100%;}
+.cl{display:block;white-space:pre;}
+.ln{display:inline-block;width:30px;color:#cbb994;text-align:right;margin-right:22px;font-size:15px;user-select:none;}
+.kw{color:#805ad5;font-weight:700;}.fn{color:#2b6cb0;font-weight:700;}
+.nm{color:#d53f8c;font-weight:700;}.op{color:#718096;}.va{color:#2d3748;}
+.cm{color:#48a868;font-style:italic;}
+.bugc{background:#fed0dc;border-radius:4px;padding:0 4px;}
+
+/* flow (right) */
+.flow-box{flex:1;min-height:0;background:#faf5ff;border:1px solid #d6bcfa;border-radius:12px;
+          display:flex;justify-content:center;align-items:center;overflow:hidden;padding:18px;}
+.flow-box svg{max-width:100%;max-height:100%;height:100%;}
+</style></head><body><!-- H3 | Tri par sélection — Énoncé vs Code | INCOHÉRENCE: Code : sélectionne le plus grand (tab[j] > min) ; énoncé (correct) cherche le plus petit. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Tri par sélection</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction <span class="hl">triSelection</span> qui trie un tableau <span class="hl">tab</span> de taille <span class="hl">n</span> par ordre croissant.</p><p>Pour chaque position <span class="hl">i</span>, supposer que le minimum est à l'indice <span class="hl">i</span>. Parcourir le reste avec un indice <span class="hl">j</span> : si <span class="hl">tab[j]</span> est plus petit que l'élément minimum courant, mettre à jour l'indice du minimum.</p><p>Après la boucle interne, échanger l'élément <span class="hl">i</span> avec le minimum trouvé, puis retourner <span class="hl">tab</span>.</p></div></div></div></div><div class="panel"><div class="ph code"><div class="pt code"><span class="ic code">&lt;/&gt;</span>Code</div><div class="ps">Tri par sélection</div></div><div class="pb"><div class="code-box"><div class="cb"><span class="cl"><span class="ln">1</span><span class="kw">fonction</span> <span class="fn">triSelection</span>(<span class="va">tab</span>, <span class="va">n</span>):</span>
+<span class="cl"><span class="ln">2</span>    <span class="kw">pour</span> <span class="va">i</span> <span class="kw">de</span> <span class="nm">0</span> <span class="kw">à</span> <span class="va">n</span> <span class="op">&minus;</span> <span class="nm">2</span> <span class="kw">faire</span>:</span>
+<span class="cl"><span class="ln">3</span>        <span class="va">indMin</span> <span class="op">&larr;</span> <span class="va">i</span></span>
+<span class="cl"><span class="ln">4</span>        <span class="kw">pour</span> <span class="va">j</span> <span class="kw">de</span> <span class="va">i</span><span class="op">+</span><span class="nm">1</span> <span class="kw">à</span> <span class="va">n</span> <span class="op">&minus;</span> <span class="nm">1</span> <span class="kw">faire</span>:</span>
+<span class="cl"><span class="ln">5</span>            <span class="kw">si</span> <span class="va">tab</span>[<span class="va">j</span>] <span class="bugc"><span class="op">&gt;</span></span> <span class="va">tab</span>[<span class="va">indMin</span>] <span class="kw">alors</span>:   <span class="cm"># BUG : &gt; au lieu de &lt;</span></span>
+<span class="cl"><span class="ln">6</span>                <span class="va">indMin</span> <span class="op">&larr;</span> <span class="va">j</span></span>
+<span class="cl"><span class="ln">7</span>        <span class="kw">échanger</span> <span class="va">tab</span>[<span class="va">i</span>] <span class="kw">et</span> <span class="va">tab</span>[<span class="va">indMin</span>]</span>
+<span class="cl"><span class="ln">8</span>    <span class="kw">retourner</span> <span class="va">tab</span></span>
+</div></div></div></div></div></body></html>

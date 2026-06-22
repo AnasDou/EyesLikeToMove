@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=980"><title>H4 · Recherche binaire — Énoncé vs Organigramme</title><style>
+:root{--tfs:30.0px;--tlh:2.8;--clh:3.0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1920px;height:980px;overflow:hidden;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;}
+.wrap{display:flex;gap:26px;padding:26px;width:1920px;height:980px;overflow:hidden;}
+.panel{flex:1;min-width:0;background:#fff;border-radius:16px;
+       box-shadow:0 4px 22px rgba(0,0,0,.09);display:flex;flex-direction:column;overflow:hidden;}
+.ph{padding:18px 32px 14px;border-bottom:4px solid;flex-shrink:0;}
+.ph.text{border-color:#0d7557;}.ph.code{border-color:#c05621;}.ph.flow{border-color:#6b46c1;}
+.pt{font-size:23px;font-weight:700;display:flex;align-items:center;gap:13px;margin-bottom:3px;}
+.pt.text{color:#0d7557;}.pt.code{color:#c05621;}.pt.flow{color:#6b46c1;}
+.ic{width:42px;height:42px;border-radius:10px;color:#fff;font-size:21px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;}
+.ic.text{background:linear-gradient(135deg,#0d9668,#065f46);}
+.ic.code{background:linear-gradient(135deg,#dd6b20,#9c4221);}
+.ic.flow{background:linear-gradient(135deg,#805ad5,#553c9a);}
+.ps{color:#718096;font-size:15px;margin-left:55px;}
+.pb{flex:1;min-height:0;padding:26px 30px;overflow:hidden;display:flex;flex-direction:column;}
+
+/* text (left) */
+.text-box{flex:1;min-height:0;background:#f0fff7;border:2px solid #9ae6b4;border-radius:12px;
+          padding:34px 40px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+.tc{font-size:var(--tfs);color:#1a2733;line-height:var(--tlh);}
+.tc p{margin-bottom:16px;text-align:justify;}
+.tc p:last-child{margin-bottom:0;}
+.hl{background:#c6f6d5;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap;}
+.tc strong{color:#0d7557;}.tc em{color:#9c4221;font-style:italic;font-weight:600;}
+
+/* code (right) */
+.code-box{flex:1;min-height:0;background:#fffaf0;border:1px solid #fbd38d;border-radius:12px;
+          padding:28px 34px;overflow:hidden;display:flex;align-items:center;}
+.cb{font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:21px;line-height:var(--clh);width:100%;}
+.cl{display:block;white-space:pre;}
+.ln{display:inline-block;width:30px;color:#cbb994;text-align:right;margin-right:22px;font-size:15px;user-select:none;}
+.kw{color:#805ad5;font-weight:700;}.fn{color:#2b6cb0;font-weight:700;}
+.nm{color:#d53f8c;font-weight:700;}.op{color:#718096;}.va{color:#2d3748;}
+.cm{color:#48a868;font-style:italic;}
+.bugc{background:#fed0dc;border-radius:4px;padding:0 4px;}
+
+/* flow (right) */
+.flow-box{flex:1;min-height:0;background:#faf5ff;border:1px solid #d6bcfa;border-radius:12px;
+          display:flex;justify-content:center;align-items:center;overflow:hidden;padding:18px;}
+.flow-box svg{max-width:100%;max-height:100%;height:100%;}
+</style></head><body><!-- H4 | Recherche binaire — Énoncé vs Organigramme | INCOHÉRENCE: Énoncé : si cible < tab[mil] → moitié droite ; organigramme (correct) → moitié gauche. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Recherche binaire (récursive)</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction récursive <span class="hl">rechercheBin</span> sur un tableau trié <span class="hl">tab</span>, avec les bornes <span class="hl">g</span> (gauche) et <span class="hl">d</span> (droite) et une valeur <span class="hl">cible</span>.</p><p><strong>Cas de base :</strong> si <span class="hl">g &gt; d</span>, retourner <span class="hl">&minus;1</span>. Calculer le milieu <span class="hl">mil = (g + d) &divide; 2</span>. Si <span class="hl">tab[mil]</span> est égal à <span class="hl">cible</span>, retourner <span class="hl">mil</span>.</p><p>Si <span class="hl">cible</span> est inférieure à <span class="hl">tab[mil]</span>, relancer la recherche sur la moitié <em>droite</em>, sinon sur la moitié <em>gauche</em>.</p></div></div></div></div><div class="panel"><div class="ph flow"><div class="pt flow"><span class="ic flow">&#9697;</span>Organigramme</div><div class="ps">Recherche binaire (récursive)</div></div><div class="pb"><div class="flow-box"><svg viewBox="0 0 680 655" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" fill="#2d3748">
+<defs>
+ <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+   markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+ </marker>
+</defs>
+<ellipse cx="270" cy="30" rx="56" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="270" y="35" text-anchor="middle" font-size="14" font-weight="700">DÉBUT</text>
+<line x1="270" y1="50" x2="270" y2="74" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="118" y="74" width="304" height="40" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="270" y="99" text-anchor="middle" font-size="13" font-weight="600">Entrée : tab, g, d, cible</text>
+<line x1="270" y1="114" x2="270" y2="138" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="270,138 344,178 270,218 196,178" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="270" y="183" text-anchor="middle" font-size="13" font-weight="700">g &gt; d ?</text>
+<line x1="344" y1="178" x2="378" y2="178" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="348" y="172" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="378" y="159" width="130" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="443" y="184" text-anchor="middle" font-size="13" font-weight="600">retourner −1</text>
+<line x1="270" y1="218" x2="270" y2="240" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="278" y="234" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<rect x="120" y="240" width="300" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="270" y="265" text-anchor="middle" font-size="13" font-weight="600">mil ← (g + d) ÷ 2</text>
+<line x1="270" y1="280" x2="270" y2="302" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="270,304 386,346 270,388 154,346" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="270" y="351" text-anchor="middle" font-size="12" font-weight="700">tab[mil] == cible ?</text>
+<line x1="386" y1="346" x2="420" y2="346" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="394" y="340" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="420" y="327" width="120" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="480" y="352" text-anchor="middle" font-size="13" font-weight="600">retourner mil</text>
+<line x1="270" y1="388" x2="270" y2="410" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="278" y="404" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<polygon points="270,412 388,454 270,496 152,454" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="270" y="459" text-anchor="middle" font-size="12" font-weight="700">cible &lt; tab[mil] ?</text>
+<path d="M152,454 L140,454 L140,520" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<text x="92" y="474" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="20" y="520" width="230" height="58" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="135" y="546" text-anchor="middle" font-size="12" font-weight="600">retourner rechercheBin(</text><text x="135" y="562" text-anchor="middle" font-size="12" font-weight="600">tab, g, mil − 1, cible)</text>
+<path d="M388,454 L515,454 L515,520" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<text x="525" y="474" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<rect x="400" y="520" width="230" height="58" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="515" y="546" text-anchor="middle" font-size="12" font-weight="600">retourner rechercheBin(</text><text x="515" y="562" text-anchor="middle" font-size="12" font-weight="600">tab, mil + 1, d, cible)</text>
+<ellipse cx="270" cy="622" rx="56" ry="22" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="270" y="627" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
+<path d="M508,178 L648,178" stroke="#4a5568" stroke-width="2" fill="none"/>
+<path d="M540,346 L648,346" stroke="#4a5568" stroke-width="2" fill="none"/>
+<path d="M648,178 L648,622" stroke="#4a5568" stroke-width="2" fill="none"/>
+<path d="M648,622 L326,622" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<path d="M140,578 L140,600 L216,600" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<path d="M515,578 L515,600 L326,600" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+</svg></div></div></div></div></body></html>

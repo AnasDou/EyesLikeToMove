@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=980"><title>E1 · Somme d'un tableau — Énoncé vs Organigramme</title><style>
+:root{--tfs:30.0px;--tlh:3.2;--clh:3.0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1920px;height:980px;overflow:hidden;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;}
+.wrap{display:flex;gap:26px;padding:26px;width:1920px;height:980px;overflow:hidden;}
+.panel{flex:1;min-width:0;background:#fff;border-radius:16px;
+       box-shadow:0 4px 22px rgba(0,0,0,.09);display:flex;flex-direction:column;overflow:hidden;}
+.ph{padding:18px 32px 14px;border-bottom:4px solid;flex-shrink:0;}
+.ph.text{border-color:#0d7557;}.ph.code{border-color:#c05621;}.ph.flow{border-color:#6b46c1;}
+.pt{font-size:23px;font-weight:700;display:flex;align-items:center;gap:13px;margin-bottom:3px;}
+.pt.text{color:#0d7557;}.pt.code{color:#c05621;}.pt.flow{color:#6b46c1;}
+.ic{width:42px;height:42px;border-radius:10px;color:#fff;font-size:21px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;}
+.ic.text{background:linear-gradient(135deg,#0d9668,#065f46);}
+.ic.code{background:linear-gradient(135deg,#dd6b20,#9c4221);}
+.ic.flow{background:linear-gradient(135deg,#805ad5,#553c9a);}
+.ps{color:#718096;font-size:15px;margin-left:55px;}
+.pb{flex:1;min-height:0;padding:26px 30px;overflow:hidden;display:flex;flex-direction:column;}
+
+/* text (left) */
+.text-box{flex:1;min-height:0;background:#f0fff7;border:2px solid #9ae6b4;border-radius:12px;
+          padding:34px 40px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+.tc{font-size:var(--tfs);color:#1a2733;line-height:var(--tlh);}
+.tc p{margin-bottom:16px;text-align:justify;}
+.tc p:last-child{margin-bottom:0;}
+.hl{background:#c6f6d5;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap;}
+.tc strong{color:#0d7557;}.tc em{color:#9c4221;font-style:italic;font-weight:600;}
+
+/* code (right) */
+.code-box{flex:1;min-height:0;background:#fffaf0;border:1px solid #fbd38d;border-radius:12px;
+          padding:28px 34px;overflow:hidden;display:flex;align-items:center;}
+.cb{font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:21px;line-height:var(--clh);width:100%;}
+.cl{display:block;white-space:pre;}
+.ln{display:inline-block;width:30px;color:#cbb994;text-align:right;margin-right:22px;font-size:15px;user-select:none;}
+.kw{color:#805ad5;font-weight:700;}.fn{color:#2b6cb0;font-weight:700;}
+.nm{color:#d53f8c;font-weight:700;}.op{color:#718096;}.va{color:#2d3748;}
+.cm{color:#48a868;font-style:italic;}
+.bugc{background:#fed0dc;border-radius:4px;padding:0 4px;}
+
+/* flow (right) */
+.flow-box{flex:1;min-height:0;background:#faf5ff;border:1px solid #d6bcfa;border-radius:12px;
+          display:flex;justify-content:center;align-items:center;overflow:hidden;padding:18px;}
+.flow-box svg{max-width:100%;max-height:100%;height:100%;}
+</style></head><body><!-- E1 | Somme d'un tableau — Énoncé vs Organigramme | INCOHÉRENCE: Énoncé : la boucle démarre à i = 1 ; organigramme (correct) démarre à i = 0. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Somme d'un tableau</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction <span class="hl">somme</span> qui reçoit un tableau <span class="hl">tab</span> et sa taille <span class="hl">n</span>.</p><p>Initialiser un accumulateur <span class="hl">total</span> à <span class="hl">0</span>. Parcourir le tableau avec un indice <span class="hl">i</span> allant de <span class="hl">1</span> à <span class="hl">n &minus; 1</span>.</p><p>À chaque étape, ajouter l'élément <span class="hl">tab[i]</span> à <span class="hl">total</span>. Lorsque la boucle est terminée, retourner <span class="hl">total</span>, la somme de tous les éléments.</p></div></div></div></div><div class="panel"><div class="ph flow"><div class="pt flow"><span class="ic flow">&#9697;</span>Organigramme</div><div class="ps">Somme d'un tableau</div></div><div class="pb"><div class="flow-box"><svg viewBox="0 0 480 478" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" fill="#2d3748">
+<defs>
+ <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+   markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+ </marker>
+</defs>
+<ellipse cx="190" cy="28" rx="56" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="190" y="33" text-anchor="middle" font-size="14" font-weight="700">DÉBUT</text>
+<line x1="190" y1="48" x2="190" y2="70" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="95" y="70" width="190" height="40" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="190" y="95" text-anchor="middle" font-size="13" font-weight="600">Entrée : tab, n</text>
+<line x1="190" y1="110" x2="190" y2="132" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="95" y="132" width="190" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="190" y="157" text-anchor="middle" font-size="13" font-weight="600">total ← 0</text>
+<line x1="190" y1="172" x2="190" y2="194" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="120" y="194" width="140" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="190" y="219" text-anchor="middle" font-size="13" font-weight="600">i ← 0</text>
+<line x1="190" y1="234" x2="190" y2="256" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="190,258 282,300 190,342 98,300" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="190" y="305" text-anchor="middle" font-size="12" font-weight="700">i ≤ n − 1 ?</text>
+<line x1="282" y1="300" x2="316" y2="300" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="286" y="294" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<rect x="316" y="281" width="150" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="391" y="306" text-anchor="middle" font-size="13" font-weight="600">retourner total</text>
+<line x1="391" y1="321" x2="391" y2="392" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<ellipse cx="391" cy="414" rx="48" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="391" y="419" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
+<line x1="190" y1="342" x2="190" y2="366" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="198" y="360" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="80" y="366" width="220" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="190" y="391" text-anchor="middle" font-size="12" font-weight="600">total ← total + tab[i]</text>
+<line x1="190" y1="406" x2="190" y2="428" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="130" y="428" width="120" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="190" y="453" text-anchor="middle" font-size="13" font-weight="600">i ← i + 1</text>
+<path d="M130,448 L50,448 L50,300 L98,300" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+</svg></div></div></div></div></body></html>
