@@ -69,4 +69,15 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;
 <line x1="190" y1="406" x2="190" y2="428" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
 <rect x="130" y="428" width="120" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="190" y="453" text-anchor="middle" font-size="13" font-weight="600">i ← i + 1</text>
 <path d="M130,448 L50,448 L50,300 L98,300" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
-</svg></div></div></div></div></body></html>
+</svg></div></div></div></div><style id="fit">
+html,body{width:100%!important;height:100%!important;margin:0;overflow:hidden!important;background:#eef2f7;}
+.wrap{position:fixed;left:50%;top:50%;transform-origin:center center;
+      transform:translate(-50%,-50%) scale(var(--fit,1));}
+</style>
+<script>
+(function(){function f(){var s=Math.min(window.innerWidth/1920,window.innerHeight/980);
+document.documentElement.style.setProperty('--fit',s);}
+window.addEventListener('resize',f);window.addEventListener('orientationchange',f);
+window.addEventListener('load',f);f();})();
+</script>
+</body></html>

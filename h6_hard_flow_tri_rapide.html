@@ -72,4 +72,15 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;
 <ellipse cx="240" cy="580" rx="56" ry="22" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="240" y="585" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
 <path d="M502,182 L515,182 L515,580" stroke="#4a5568" stroke-width="2" fill="none"/>
 <path d="M515,580 L296,580" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
-</svg></div></div></div></div></body></html>
+</svg></div></div></div></div><style id="fit">
+html,body{width:100%!important;height:100%!important;margin:0;overflow:hidden!important;background:#eef2f7;}
+.wrap{position:fixed;left:50%;top:50%;transform-origin:center center;
+      transform:translate(-50%,-50%) scale(var(--fit,1));}
+</style>
+<script>
+(function(){function f(){var s=Math.min(window.innerWidth/1920,window.innerHeight/980);
+document.documentElement.style.setProperty('--fit',s);}
+window.addEventListener('resize',f);window.addEventListener('orientationchange',f);
+window.addEventListener('load',f);f();})();
+</script>
+</body></html>
