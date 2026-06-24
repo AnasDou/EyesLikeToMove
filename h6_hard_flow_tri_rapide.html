@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=980"><title>H6 · Tri rapide — Énoncé vs Organigramme</title><style>
-:root{--tfs:29.5px;--tlh:2.2;--clh:3.0;}
+:root{--tfs:28.0px;--tlh:2.60;--clh:3.0;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{width:1920px;height:980px;overflow:hidden;}
 body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;}
@@ -17,8 +17,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;
 .ic.flow{background:linear-gradient(135deg,#805ad5,#553c9a);}
 .ps{color:#718096;font-size:15px;margin-left:55px;}
 .pb{flex:1;min-height:0;padding:26px 30px;overflow:hidden;display:flex;flex-direction:column;}
-
-/* text (left) */
 .text-box{flex:1;min-height:0;background:#f0fff7;border:2px solid #9ae6b4;border-radius:12px;
           padding:34px 40px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
 .tc{font-size:var(--tfs);color:#1a2733;line-height:var(--tlh);}
@@ -26,52 +24,43 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#eef2f7;
 .tc p:last-child{margin-bottom:0;}
 .hl{background:#c6f6d5;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap;}
 .tc strong{color:#0d7557;}.tc em{color:#9c4221;font-style:italic;font-weight:600;}
-
-/* code (right) */
-.code-box{flex:1;min-height:0;background:#fffaf0;border:1px solid #fbd38d;border-radius:12px;
-          padding:28px 34px;overflow:hidden;display:flex;align-items:center;}
-.cb{font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:21px;line-height:var(--clh);width:100%;}
-.cl{display:block;white-space:pre;}
-.ln{display:inline-block;width:30px;color:#cbb994;text-align:right;margin-right:22px;font-size:15px;user-select:none;}
-.kw{color:#805ad5;font-weight:700;}.fn{color:#2b6cb0;font-weight:700;}
-.nm{color:#d53f8c;font-weight:700;}.op{color:#718096;}.va{color:#2d3748;}
-.cm{color:#48a868;font-style:italic;}
-.bugc{background:#fed0dc;border-radius:4px;padding:0 4px;}
-
-/* flow (right) */
 .flow-box{flex:1;min-height:0;background:#faf5ff;border:1px solid #d6bcfa;border-radius:12px;
           display:flex;justify-content:center;align-items:center;overflow:hidden;padding:18px;}
 .flow-box svg{max-width:100%;max-height:100%;height:100%;}
-</style></head><body><!-- H6 | Tri rapide — Énoncé vs Organigramme | INCOHÉRENCE: Énoncé : cas de base = tableau vide (taille 0) ; organigramme (correct) = len(tab) ≤ 1. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Tri rapide (récursif)</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction récursive <span class="hl">triRapide</span> qui trie un tableau <span class="hl">tab</span>.</p><p><strong>Cas de base :</strong> si le tableau est <em>vide</em> (taille 0), le retourner tel quel. Sinon, choisir un <span class="hl">pivot</span>, puis partitionner les autres éléments en deux groupes : ceux plus petits que le <span class="hl">pivot</span> et ceux plus grands.</p><p>Trier récursivement chaque groupe, puis retourner la concaténation du groupe gauche, du <span class="hl">pivot</span> et du groupe droit.</p></div></div></div></div><div class="panel"><div class="ph flow"><div class="pt flow"><span class="ic flow">&#9697;</span>Organigramme</div><div class="ps">Tri rapide (récursif)</div></div><div class="pb"><div class="flow-box"><svg viewBox="0 0 540 615" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" fill="#2d3748">
+</style></head><body><!-- H6 | Tri rapide (partition) — INCOHÉRENCE: Énoncé: « strictement inférieur » (tab[j]<pivot) ; organigramme (correct): tab[j] ≤ pivot. --><div class="wrap"><div class="panel"><div class="ph text"><div class="pt text"><span class="ic text">&#9776;</span>Énoncé</div><div class="ps">Tri rapide · étape de partitionnement</div></div><div class="pb"><div class="text-box"><div class="tc"><p>Écrire une fonction <span class="hl">partitionner</span> qui réorganise un tableau <span class="hl">tab</span> entre les bornes <span class="hl">g</span> et <span class="hl">d</span> autour d'un <span class="hl">pivot</span>. C'est l'étape clé du tri rapide.</p><p>Choisir comme pivot le dernier élément <span class="hl">tab[d]</span> et initialiser <span class="hl">i</span> à <span class="hl">g &minus; 1</span>. Pour chaque indice <span class="hl">j</span> de <span class="hl">g</span> à <span class="hl">d &minus; 1</span>, si <span class="hl">tab[j]</span> est <em>strictement inférieur</em> au pivot, incrémenter <span class="hl">i</span> puis échanger <span class="hl">tab[i]</span> et <span class="hl">tab[j]</span>.</p><p>À la fin, échanger <span class="hl">tab[i+1]</span> et <span class="hl">tab[d]</span> pour placer le pivot, puis retourner la position <span class="hl">i + 1</span>.</p></div></div></div></div><div class="panel"><div class="ph flow"><div class="pt flow"><span class="ic flow">&#9697;</span>Organigramme</div><div class="ps">Tri rapide · étape de partitionnement</div></div><div class="pb"><div class="flow-box"><svg viewBox="0 0 660 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" fill="#2d3748">
 <defs>
  <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
    <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
  </marker>
 </defs>
-<ellipse cx="240" cy="30" rx="56" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="240" y="35" text-anchor="middle" font-size="14" font-weight="700">DÉBUT</text>
-<line x1="240" y1="50" x2="240" y2="74" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<rect x="150" y="74" width="180" height="40" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="240" y="99" text-anchor="middle" font-size="13" font-weight="600">Entrée : tab</text>
-<line x1="240" y1="114" x2="240" y2="138" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<polygon points="240,140 348,182 240,224 132,182" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="240" y="187" text-anchor="middle" font-size="12" font-weight="700">len(tab) ≤ 1 ?</text>
-<line x1="348" y1="182" x2="382" y2="182" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<text x="354" y="176" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
-<rect x="382" y="163" width="120" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="442" y="188" text-anchor="middle" font-size="13" font-weight="600">retourner tab</text>
-<line x1="240" y1="224" x2="240" y2="246" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<text x="248" y="240" font-size="11" font-weight="700" fill="#c53030">NON</text>
-<rect x="45" y="246" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="271" text-anchor="middle" font-size="12" font-weight="600">pivot ← tab[fin]</text>
-<line x1="240" y1="286" x2="240" y2="308" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<rect x="45" y="308" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="333" text-anchor="middle" font-size="12" font-weight="600">(G, D) ← partitionner(tab, pivot)</text>
-<line x1="240" y1="348" x2="240" y2="370" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<rect x="45" y="370" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="395" text-anchor="middle" font-size="12" font-weight="600">G ← triRapide(G)</text>
-<line x1="240" y1="410" x2="240" y2="432" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<rect x="45" y="432" width="390" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="240" y="457" text-anchor="middle" font-size="12" font-weight="600">D ← triRapide(D)</text>
-<line x1="240" y1="472" x2="240" y2="494" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<rect x="120" y="494" width="240" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="240" y="519" text-anchor="middle" font-size="13" font-weight="600">retourner G + [pivot] + D</text>
-<line x1="240" y1="534" x2="240" y2="556" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-<ellipse cx="240" cy="580" rx="56" ry="22" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="240" y="585" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
-<path d="M502,182 L515,182 L515,580" stroke="#4a5568" stroke-width="2" fill="none"/>
-<path d="M515,580 L296,580" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<ellipse cx="250" cy="28" rx="56" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="250" y="33" text-anchor="middle" font-size="14" font-weight="700">DÉBUT</text>
+<line x1="250" y1="48" x2="250" y2="70" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="130" y="70" width="240" height="40" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="250" y="95" text-anchor="middle" font-size="13" font-weight="600">Entrée : tab, g, d</text>
+<line x1="250" y1="110" x2="250" y2="132" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="105" y="132" width="290" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="250" y="157" text-anchor="middle" font-size="13" font-weight="600">pivot ← tab[d] , i ← g − 1</text>
+<line x1="250" y1="172" x2="250" y2="194" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="180" y="194" width="140" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="250" y="219" text-anchor="middle" font-size="13" font-weight="600">j ← g</text>
+<line x1="250" y1="234" x2="250" y2="258" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<polygon points="250,256 342,300 250,344 158,300" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="250" y="305" text-anchor="middle" font-size="12" font-weight="700">j ≤ d − 1 ?</text>
+<line x1="342" y1="300" x2="410" y2="300" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="350" y="294" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<rect x="410" y="281" width="235" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="528" y="306" text-anchor="middle" font-size="12" font-weight="600">échanger tab[i+1], tab[d]</text>
+<line x1="527" y1="321" x2="527" y2="346" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="462" y="346" width="130" height="40" rx="7" fill="#c6f6d5" stroke="#2f855a" stroke-width="2"/><text x="527" y="371" text-anchor="middle" font-size="13" font-weight="600">retourner i + 1</text>
+<line x1="527" y1="386" x2="527" y2="408" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<ellipse cx="527" cy="430" rx="50" ry="20" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/><text x="527" y="435" text-anchor="middle" font-size="14" font-weight="700">FIN</text>
+<line x1="250" y1="344" x2="250" y2="368" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="258" y="362" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<polygon points="250,368 360,412 250,456 140,412" fill="#fde7c4" stroke="#dd8a1a" stroke-width="2"/><text x="250" y="417" text-anchor="middle" font-size="12" font-weight="700">tab[j] ≤ pivot ?</text>
+<line x1="250" y1="456" x2="250" y2="482" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="258" y="476" font-size="11" font-weight="700" fill="#2f855a">OUI</text>
+<rect x="120" y="482" width="260" height="48" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="250" y="503" text-anchor="middle" font-size="12" font-weight="600">i ← i + 1</text><text x="250" y="519" text-anchor="middle" font-size="12" font-weight="600">échanger tab[i], tab[j]</text>
+<line x1="250" y1="530" x2="250" y2="560" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="170" y="560" width="160" height="40" rx="7" fill="#d6e4ff" stroke="#3b6fc4" stroke-width="2"/><text x="250" y="585" text-anchor="middle" font-size="13" font-weight="600">j ← j + 1</text>
+<path d="M360,412 L395,412 L395,580 L330,580" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<text x="401" y="406" font-size="11" font-weight="700" fill="#c53030">NON</text>
+<path d="M170,580 L60,580 L60,300 L158,300" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#ah)"/>
 </svg></div></div></div></div><style id="fit">
 html,body{width:100%!important;height:100%!important;margin:0;overflow:hidden!important;background:#eef2f7;}
 .wrap{position:fixed;left:50%;top:50%;transform-origin:center center;
